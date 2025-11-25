@@ -1,0 +1,452 @@
+/* --- CSS VARIABLES (Theme Colors) --- */
+:root {
+    --primary-gradient-start: #00bfa5; /* Teal-ish */
+    --primary-gradient-end: #007aff;   /* Blue-ish */
+    
+    --accent-color: #00bfa5; 
+    --text-dark: #1e293b;
+    --text-gray: #64748b;
+    --text-light: #f1f5f9;
+    --bg-color: #eef2f6; 
+    
+    --card-radius: 1.5rem; 
+    --input-radius: 0.8rem;
+    --btn-radius: 0.8rem;
+    
+    --font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Import Font (Fixed Link) */
+@import url('[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap)');
+
+/* --- GLOBAL RESETS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* --- MAIN CONTAINER --- */
+.login-container {
+    background: white;
+    border-radius: var(--card-radius);
+    box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1050px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    min-height: 680px;
+}
+
+/* --- LEFT SIDE: INFO PANEL --- */
+.info-panel {
+    width: 45%; 
+    background: linear-gradient(160deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+    padding: 3.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.15;
+}
+.blob-1 { top: -50px; right: -50px; width: 200px; height: 200px; background: white; }
+.blob-2 { bottom: -50px; left: -50px; width: 300px; height: 300px; background: #003366; }
+
+.panel-content {
+    position: relative;
+    z-index: 10;
+}
+
+/* Logo */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+}
+.logo-text {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: rgba(255,255,255,0.95);
+}
+
+.description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0.85;
+    font-weight: 300;
+    max-width: 90%;
+}
+
+/* Feature List */
+.features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+/* UPDATED TICK ICON STYLE */
+.check-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent fill */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Thin crisp border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem; /* Smaller icon size for elegance */
+    color: white;
+    flex-shrink: 0;
+}
+
+.feature-text {
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.95;
+}
+
+/* Stats Section */
+.stats-section {
+    position: relative;
+    z-index: 10;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding-right: 1rem;
+}
+
+.stat-number {
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+.stat-label {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+/* --- RIGHT SIDE: FORM PANEL --- */
+.form-panel {
+    width: 55%;
+    padding: 3rem 4rem;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+    font-weight: 400;
+    position: absolute;
+    top: 3rem;
+}
+.back-link:hover { color: var(--text-dark); }
+
+.header-section {
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.institute-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+.icon-box {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--primary-gradient-start), #0ea5e9);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(14, 165, 233, 0.2);
+}
+
+.page-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.institute-name {
+    margin-left: 3.6rem;
+    color: #475569;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* Role Selector */
+.role-label {
+    display: block;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    margin-bottom: 0.85rem;
+    font-weight: 400;
+}
+
+.role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.role-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 1.2rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.role-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.role-card i {
+    font-size: 1.4rem;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.role-card span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-gray);
+    transition: color 0.2s;
+}
+
+/* Active Role State */
+.role-card.active {
+    border-color: var(--accent-color);
+    background-color: #f0fdfa;
+}
+.role-card.active i {
+    color: #0d9488;
+}
+.role-card.active span {
+    color: #0f766e;
+    font-weight: 500;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 1.4rem;
+}
+.input-label {
+    display: block;
+    color: #334155;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.9rem 1rem 0.9rem 3rem;
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--input-radius);
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input::placeholder {
+    color: #94a3b8;
+}
+
+.form-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.15);
+}
+
+/* Form Footer */
+.form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.8rem;
+    font-size: 0.85rem;
+    margin-top: -0.2rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #475569;
+    cursor: pointer;
+    user-select: none;
+}
+.checkbox-label input {
+    width: 16px;
+    height: 16px;
+    accent-color: #334155;
+}
+
+.forgot-link {
+    color: #0d9488;
+    text-decoration: none;
+    font-weight: 500;
+}
+.forgot-link:hover { text-decoration: underline; }
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #2dd4bf, #3b82f6);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: var(--btn-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    box-shadow: 0 10px 20px -5px rgba(45, 212, 191, 0.4);
+    transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+    box-shadow: 0 15px 25px -5px rgba(45, 212, 191, 0.5);
+    transform: translateY(-1px);
+}
+.submit-btn:active {
+    transform: scale(0.99);
+}
+
+.footer-text {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+.footer-text a {
+    color: #0d9488;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+    .login-container {
+        flex-direction: column;
+        max-width: 600px;
+        height: auto;
+    }
+    .info-panel {
+        width: 100%;
+        padding: 3rem;
+    }
+    .stats-section {
+        margin-top: 2rem;
+    }
+    .form-panel {
+        width: 100%;
+        padding: 2.5rem;
+    }
+    .back-link {
+        position: relative;
+        top: 0;
+        margin-bottom: 1.5rem;
+    }
+    .header-section {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        border-radius: 1rem;
+    }
+    .role-grid {
+        gap: 0.5rem;
+    }
+    .role-card {
+        padding: 1rem 0.5rem;
+    }
+    .stats-section {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    .stat-number {
+        font-size: 1.2rem;
+    }
+}
