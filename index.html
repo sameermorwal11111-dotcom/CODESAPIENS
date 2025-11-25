@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edusap Login</title>
+    <!-- FontAwesome for Icons (Fixed Link) -->
+    <link href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)" rel="stylesheet">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        
+        <!-- Left Panel -->
+        <div class="info-panel">
+            <!-- Subtle background shapes -->
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+
+            <div class="panel-content">
+                <div class="logo-area">
+                    <i class="fa-solid fa-graduation-cap" style="font-size: 2.2rem;"></i>
+                    <span class="logo-text">edusap</span>
+                </div>
+
+                <h2 class="tagline">Transform Your Institution</h2>
+                <p class="description">India's most trusted school management software with over 100,000+ users</p>
+
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <span class="feature-text">Smart Attendance Tracking</span>
+                    </li>
+                    <li class="feature-item">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <span class="feature-text">Comprehensive Fee Management</span>
+                    </li>
+                    <li class="feature-item">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <span class="feature-text">Advanced Analytics & Reports</span>
+                    </li>
+                    <li class="feature-item">
+                        <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                        <span class="feature-text">24/7 Support Available</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="stats-section">
+                <div>
+                    <span class="stat-number">300+</span>
+                    <span class="stat-label">Schools</span>
+                </div>
+                <div>
+                    <span class="stat-number">6,240+</span>
+                    <span class="stat-label">Teachers</span>
+                </div>
+                <div>
+                    <span class="stat-number">100K+</span>
+                    <span class="stat-label">Students</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel (Form) -->
+        <div class="form-panel">
+            <a href="#" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Change Institute
+            </a>
+
+            <div class="header-section">
+                <div class="institute-header">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="header-text-group">
+                        <h1 class="page-title">Login to edusap</h1>
+                    </div>
+                </div>
+                <p class="institute-name">Engineering College Bikaner</p>
+            </div>
+
+            <label class="role-label">Select Your Role</label>
+            <div class="role-grid">
+                <button class="role-card" id="role-student" onclick="selectRole('student')">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Student</span>
+                </button>
+                <button class="role-card" id="role-teacher" onclick="selectRole('teacher')">
+                    <i class="fa-regular fa-id-badge"></i>
+                    <span>Teacher</span>
+                </button>
+                <button class="role-card" id="role-admin" onclick="selectRole('admin')">
+                    <i class="fa-regular fa-user-circle"></i>
+                    <span>Admin</span>
+                </button>
+            </div>
+
+            <form onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label class="input-label">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-envelope input-icon"></i>
+                        <input type="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock input-icon" style="font-size: 0.9rem;"></i>
+                        <input type="password" class="form-input" placeholder="Enter your password" required>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Login to Dashboard
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <div class="footer-text">
+                Don't have an account? <a href="#">Contact Admin</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to external JS file -->
+    <script src="script.js"></script>
+</body>
+</html>
