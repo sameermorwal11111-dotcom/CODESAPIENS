@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-teal: #00bfa5;
+            --primary-dark: #009688;
+            --danger-red: #ff5252;
+            --danger-bg: #ffebee;
+            --success-green: #00c853;
+            --success-bg: #e8f5e9;
+            --warning-orange: #ff6d00;
+            --purple-icon: #d500f9;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            padding: 20px;
+            color: var(--text-main);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Header --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        header h2 {
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        .btn-leave {
+            background-color: var(--primary-dark);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        /* --- Top Stats Cards --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-main {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .card-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-box {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Icon Colors */
+        .icon-green { background-color: var(--success-bg); color: var(--success-green); }
+        .icon-red { background-color: var(--danger-bg); color: var(--danger-red); }
+        .icon-purple { background-color: #f3e5f5; color: var(--purple-icon); }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+        
+        .card-main .stat-number { font-size: 2rem; }
+        .card-main .stat-label { color: rgba(255,255,255,0.9); }
+
+        /* --- Subject List --- */
+        .section-title {
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .subject-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .subject-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .subject-name {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .class-count {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .percentage {
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        .progress-bg {
+            background-color: #eee;
+            height: 6px;
+            border-radius: 10px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        /* --- Recent Attendance Table --- */
+        .table-container {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            overflow-x: auto;
+            margin-bottom: 60px; /* Space for fab */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 15px 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        td {
+            padding: 15px 10px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-present {
+            background-color: var(--success-bg);
+            color: var(--success-green);
+        }
+
+        .status-absent {
+            background-color: var(--danger-bg);
+            color: var(--danger-red);
+        }
+
+        /* --- Floating Chat Bot --- */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #03a9f4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(3, 169, 244, 0.4);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .fab:hover {
+            transform: scale(1.05);
+        }
+
+        .fab i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Text colors based on screenshot logic */
+        .text-green { color: var(--success-green); }
+        .text-orange { color: var(--warning-orange); }
+        .bg-green { background-color: var(--success-green); }
+        .bg-orange { background-color: var(--warning-orange); }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h2>Smart Attendance</h2>
+            <button class="btn-leave">
+                <i class="fa-regular fa-calendar"></i> Request Leave
+            </button>
+        </header>
+
+        <div class="stats-grid">
+            <div class="card card-main">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <i class="fa-solid fa-arrow-trend-up" style="font-size: 1.5rem;"></i>
+                    <div class="stat-number">87%</div>
+                </div>
+                <div class="stat-label" style="margin-top: auto;">Overall Attendance</div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="icon-box icon-green"><i class="fa-solid fa-check"></i></div>
+                    <div>
+                        <div class="stat-number">235</div>
+                        <div class="stat-label">Classes Attended</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="icon-box icon-red"><i class="fa-solid fa-xmark"></i></div>
+                    <div>
+                        <div class="stat-number">35</div>
+                        <div class="stat-label">Classes Missed</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="icon-box icon-purple"><i class="fa-regular fa-clock"></i></div>
+                    <div>
+                        <div class="stat-number">270</div>
+                        <div class="stat-label">Total Classes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Subject-wise Attendance</div>
+        <div id="subject-list">
+            </div>
+
+        <div class="section-title">Recent Attendance</div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Subject</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="attendance-body">
+                    </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="fab">
+        <i class="fa-solid fa-robot"></i>
+    </div>
+
+    <script>
+        // Data derived from screenshots
+        const subjects = [
+            { name: "Data Structures", attended: 42, total: 48, percent: 87.5, colorClass: "green" },
+            { name: "Computer Networks", attended: 38, total: 45, percent: 84.4, colorClass: "orange" },
+            { name: "Operating Systems", attended: 40, total: 44, percent: 90.9, colorClass: "green" },
+            { name: "Database Management", attended: 35, total: 42, percent: 83.3, colorClass: "orange" },
+            { name: "Software Engineering", attended: 39, total: 46, percent: 84.8, colorClass: "orange" },
+            { name: "Web Development", attended: 41, total: 45, percent: 91.1, colorClass: "green" }
+        ];
+
+        const attendanceLog = [
+            { date: "2024-11-25", subject: "Data Structures", time: "09:00 AM", status: "Present" },
+            { date: "2024-11-25", subject: "Computer Networks", time: "11:00 AM", status: "Present" },
+            { date: "2024-11-24", subject: "Operating Systems", time: "10:00 AM", status: "Present" },
+            { date: "2024-11-24", subject: "Database Management", time: "02:00 PM", status: "Absent" },
+            { date: "2024-11-23", subject: "Software Engineering", time: "09:00 AM", status: "Present" }
+        ];
+
+        // Function to render Subjects
+        function renderSubjects() {
+            const container = document.getElementById('subject-list');
+            let html = '';
+
+            subjects.forEach(sub => {
+                const textClass = sub.colorClass === 'green' ? 'text-green' : 'text-orange';
+                const bgClass = sub.colorClass === 'green' ? 'bg-green' : 'bg-orange';
+                
+                html += `
+                <div class="subject-card">
+                    <div class="subject-header">
+                        <div>
+                            <div class="subject-name">${sub.name}</div>
+                            <div class="class-count">${sub.attended} / ${sub.total} classes</div>
+                        </div>
+                        <div class="percentage ${textClass}">${sub.percent}%</div>
+                    </div>
+                    <div class="progress-bg">
+                        <div class="progress-fill ${bgClass}" style="width: ${sub.percent}%"></div>
+                    </div>
+                </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Function to render Table
+        function renderTable() {
+            const tbody = document.getElementById('attendance-body');
+            let html = '';
+
+            attendanceLog.forEach(log => {
+                const statusClass = log.status === "Present" ? "status-present" : "status-absent";
+                const icon = log.status === "Present" ? "fa-check" : "fa-xmark";
+
+                html += `
+                <tr>
+                    <td>${log.date}</td>
+                    <td>${log.subject}</td>
+                    <td>${log.time}</td>
+                    <td>
+                        <span class="status-badge ${statusClass}">
+                            <i class="fa-solid ${icon}"></i> ${log.status}
+                        </span>
+                    </td>
+                </tr>
+                `;
+            });
+
+            tbody.innerHTML = html;
+        }
+
+        // Initialize
+        renderSubjects();
+        renderTable();
+
+    </script>
+</body>
+</html>
