@@ -1,0 +1,389 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║              🎥 FACE RECOGNITION WITH LIVE CAMERA - PROMPTS 🎥             ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🎯 PROMPT 1: COMPLETE FLOW (START HERE - RECOMMENDED)                    ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃                                                                            ┃
+┃ COPY-PASTE THIS:                                                         ┃
+┃ ═══════════════                                                          ┃
+┃                                                                            ┃
+┃ cd D:\FACEreconation\FaceRecognition-GUI-APP-master\FaceRecognition-GUI-APP-master
+┃ python run_with_camera_display.py                                        ┃
+┃                                                                            ┃
+┃ THEN DO THIS:                                                            ┃
+┃ ══════════════                                                           ┃
+┃                                                                            ┃
+┃ When menu appears, press: 4                                              ┃
+┃ When asked for name, type: Your name (e.g., john, sarah, alex)          ┃
+┃ When camera opens:                                                       ┃
+┃   └─ CAPTURE PHASE (45 seconds):                                         ┃
+┃      ✓ You see yourself live                                             ┃
+┃      ✓ Yellow box around your face                                       ┃
+┃      ✓ "Progress: 10/50" updates on video                                ┃
+┃      ✓ Auto-captures 50 images                                           ┃
+┃      ✓ Terminal shows: "✓ Captured: 10/50 | Time: 5.1s"                  ┃
+┃      ✓ After 50: "✓ Captured 50 images for [name]"                       ┃
+┃                                                                            ┃
+┃   └─ TRAINING PHASE (5-10 seconds):                                      ┃
+┃      ✓ No camera (terminal output only)                                  ┃
+┃      ✓ Shows: "Training with 50 images..."                               ┃
+┃      ✓ Shows: "✓ Training complete!"                                     ┃
+┃                                                                            ┃
+┃   └─ RECOGNITION PHASE (15 seconds):                                     ┃
+┃      ✓ Camera opens again                                                ┃
+┃      ✓ "Press Enter to start recognition..."                             ┃
+┃      ✓ Press Enter                                                       ┃
+┃      ✓ You see yourself live                                             ┃
+┃      ✓ GREEN boxes = MATCH! (high confidence)                            ┃
+┃      ✓ RED boxes = NO MATCH (low confidence)                             ┃
+┃      ✓ "MATCH! (92%)" label on each box                                  ┃
+┃      ✓ Progress: "Time: 8.5s / 15s" on video                             ┃
+┃      ✓ Counter: "Matches: 5" on video                                    ┃
+┃      ✓ Auto-stops after 15 seconds                                       ┃
+┃                                                                            ┃
+┃ FINAL RESULT:                                                            ┃
+┃ ════════════                                                             ┃
+┃                                                                            ┃
+┃ ============================================================              ┃
+┃ Recognition Complete!                                                    ┃
+┃ Total Frames: 303                                                        ┃
+┃ Matches Found: 28                                                        ┃
+┃ ✓ SUCCESS - JOHN RECOGNIZED!                                             ┃
+┃ ============================================================              ┃
+┃                                                                            ┃
+┃ TIME EXPECTED: ~4 minutes (first run with installation)                  ┃
+┃               ~1 minute (later runs)                                     ┃
+┃                                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 📷 PROMPT 2: CAPTURE ONLY (With Live Camera)                             ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃                                                                            ┃
+┃ COPY-PASTE THIS:                                                         ┃
+┃ ═══════════════                                                          ┃
+┃                                                                            ┃
+┃ cd D:\FACEreconation\FaceRecognition-GUI-APP-master\FaceRecognition-GUI-APP-master
+┃ python run_with_camera_display.py                                        ┃
+┃                                                                            ┃
+┃ THEN DO THIS:                                                            ┃
+┃ ══════════════                                                           ┃
+┃                                                                            ┃
+┃ When menu appears, press: 1                                              ┃
+┃ When asked for name, type: Any name (e.g., maria, david)                 ┃
+┃ Camera opens:                                                            ┃
+┃   ✓ "Capturing - [name]" window title                                    ┃
+┃   ✓ You see yourself live                                                ┃
+┃   ✓ Yellow rectangle around your face                                    ┃
+┃   ✓ Green text: "Capturing: [name]" at top                               ┃
+┃   ✓ Green text: "Progress: 15/50" updates                                ┃
+┃   ✓ Green text: "Press ESC to stop" (optional)                           ┃
+┃   ✓ Terminal: "✓ Captured: 5/50 | Time: 2.1s"                            ┃
+┃   ✓ Terminal: "✓ Captured: 10/50 | Time: 4.5s"                           ┃
+┃   ✓ [continues...]                                                       ┃
+┃   ✓ After 50 images: "✓ Captured 50 images for [name]"                   ┃
+┃                                                                            ┃
+┃ TIME EXPECTED: ~45 seconds                                               ┃
+┃                                                                            ┃
+┃ NEXT STEP: Train (Prompt 4) or Recognition (Prompt 3)                    ┃
+┃                                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🎯 PROMPT 3: RECOGNIZE ONLY (With Live Camera)                           ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃                                                                            ┃
+┃ COPY-PASTE THIS:                                                         ┃
+┃ ═══════════════                                                          ┃
+┃                                                                            ┃
+┃ cd D:\FACEreconation\FaceRecognition-GUI-APP-master\FaceRecognition-GUI-APP-master
+┃ python run_with_camera_display.py                                        ┃
+┃                                                                            ┃
+┃ THEN DO THIS:                                                            ┃
+┃ ══════════════                                                           ┃
+┃                                                                            ┃
+┃ When menu appears, press: 3                                              ┃
+┃ System shows:                                                            ┃
+┃   Available trained users:                                               ┃
+┃     1. HIMANSHU                                                          ┃
+┃     2. Sam                                                               ┃
+┃     3. ab                                                                ┃
+┃     4. cc                                                                ┃
+┃     5. ch                                                                ┃
+┃     6. ngoc                                                              ┃
+┃     7. nilesh                                                            ┃
+┃     8. tho                                                               ┃
+┃     9. tho1                                                              ┃
+┃                                                                            ┃
+┃ When asked "Select user (number or name):", type:                        ┃
+┃   Option A: Number (e.g., 2 for Sam)                                     ┃
+┃   Option B: Name (e.g., Sam, ngoc, ab)                                   ┃
+┃                                                                            ┃
+┃ When asked "Timeout seconds (default 15):", press:                       ┃
+┃   Enter (for default 15 seconds)                                         ┃
+┃   Or type: 20 (for custom 20 seconds)                                    ┃
+┃                                                                            ┃
+┃ Camera opens:                                                            ┃
+┃   ✓ "Recognition - [name]" window title                                  ┃
+┃   ✓ You see yourself live                                                ┃
+┃   ✓ GREEN rectangle around face = MATCH FOUND! ✓                         ┃
+┃   ✓ RED rectangle around face = NO MATCH                                 ┃
+┃   ✓ Label: "MATCH! (92%)" or "NO MATCH (45%)"                            ┃
+┃   ✓ Green text: "Recognizing: [name]" at top                             ┃
+┃   ✓ Green text: "Time: 5.2s / 15s"                                       ┃
+┃   ✓ Green text: "Frames: 156"                                            ┃
+┃   ✓ Green text: "Matches: 3"                                             ┃
+┃                                                                            ┃
+┃ After timeout (or press ESC):                                            ┃
+┃   ============================================================            ┃
+┃   Recognition Complete!                                                  ┃
+┃   Total Frames: 303                                                      ┃
+┃   Matches Found: 25                                                      ┃
+┃   ✓ SUCCESS - SAM RECOGNIZED!                                            ┃
+┃   ============================================================            ┃
+┃                                                                            ┃
+┃ TIME EXPECTED: ~15 seconds (or custom timeout)                           ┃
+┃                                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🎓 PROMPT 4: TRAIN ONLY (No Camera)                                      ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃                                                                            ┃
+┃ COPY-PASTE THIS:                                                         ┃
+┃ ═══════════════                                                          ┃
+┃                                                                            ┃
+┃ cd D:\FACEreconation\FaceRecognition-GUI-APP-master\FaceRecognition-GUI-APP-master
+┃ python run_with_camera_display.py                                        ┃
+┃                                                                            ┃
+┃ THEN DO THIS:                                                            ┃
+┃ ══════════════                                                           ┃
+┃                                                                            ┃
+┃ When menu appears, press: 2                                              ┃
+┃ When asked for name, type: Name of person (e.g., john)                   ┃
+┃ System outputs:                                                          ┃
+┃   ===============================================================        ┃
+┃   TRAINING CLASSIFIER - JOHN                                             ┃
+┃   ===============================================================        ┃
+┃   Training with 50 images...                                             ┃
+┃   ✓ Training complete!                                                   ┃
+┃   ✓ Classifier saved: ./data/classifiers/john_classifier.xml             ┃
+┃   ===============================================================        ┃
+┃                                                                            ┃
+┃ NO CAMERA - Just terminal output                                         ┃
+┃                                                                            ┃
+┃ TIME EXPECTED: ~5-10 seconds                                             ┃
+┃                                                                            ┃
+┃ NEXT STEP: Recognize (Prompt 3)                                          ┃
+┃                                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 👥 PROMPT 5: LIST ALL USERS                                              ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃                                                                            ┃
+┃ COPY-PASTE THIS:                                                         ┃
+┃ ═══════════════                                                          ┃
+┃                                                                            ┃
+┃ cd D:\FACEreconation\FaceRecognition-GUI-APP-master\FaceRecognition-GUI-APP-master
+┃ python run_with_camera_display.py                                        ┃
+┃                                                                            ┃
+┃ THEN DO THIS:                                                            ┃
+┃ ══════════════                                                           ┃
+┃                                                                            ┃
+┃ When menu appears, press: 5                                              ┃
+┃ System shows:                                                            ┃
+┃   ===============================================================        ┃
+┃   AVAILABLE TRAINED USERS                                                ┃
+┃   ===============================================================        ┃
+┃                                                                            ┃
+┃   1. HIMANSHU (45 images)                                                ┃
+┃   2. SAM (50 images)                                                     ┃
+┃   3. AB (42 images)                                                      ┃
+┃   4. CC (38 images)                                                      ┃
+┃   5. CH (50 images)                                                      ┃
+┃   6. NGOC (50 images)                                                    ┃
+┃   7. NILESH (39 images)                                                  ┃
+┃   8. THO (50 images)                                                     ┃
+┃   9. THO1 (48 images)                                                    ┃
+┃                                                                            ┃
+┃ NO CAMERA - Just terminal output                                         ┃
+┃                                                                            ┃
+┃ TIME EXPECTED: Instant                                                   ┃
+┃                                                                            ┃
+┃ NEXT STEP: Press menu again to select option                             ┃
+┃                                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🧑 PROMPT 6: RECOGNIZE EXISTING USER (Sam) - With Live Camera            ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃                                                                            ┃
+┃ COPY-PASTE THIS:                                                         ┃
+┃ ═══════════════                                                          ┃
+┃                                                                            ┃
+┃ cd D:\FACEreconation\FaceRecognition-GUI-APP-master\FaceRecognition-GUI-APP-master
+┃ python run_with_camera_display.py                                        ┃
+┃                                                                            ┃
+┃ THEN DO THIS:                                                            ┃
+┃ ══════════════                                                           ┃
+┃                                                                            ┃
+┃ When menu appears, press: 3                                              ┃
+┃ When asked for user, type: Sam                                           ┃
+┃ When asked for timeout, press: Enter (default 15 seconds)                ┃
+┃ When camera opens:                                                       ┃
+┃   ✓ Stand in front of camera                                             ┃
+┃   ✓ Watch for GREEN boxes if you're Sam                                  ┃
+┃   ✓ Watch for RED boxes if you're not Sam                                ┃
+┃   ✓ See confidence % on boxes                                            ┃
+┃   ✓ See progress on video                                                ┃
+┃                                                                            ┃
+┃ Expected Output (if you're Sam):                                         ┃
+┃   Time: 5.2s / 15s | Frames: 156 | Status: MATCHED ✓                    ┃
+┃   Time: 7.8s / 15s | Frames: 234 | Status: MATCHED ✓                    ┃
+┃   [...]                                                                   ┃
+┃   Recognition Complete!                                                  ┃
+┃   Total Frames: 300                                                      ┃
+┃   Matches Found: 15                                                      ┃
+┃   ✓ SUCCESS - SAM RECOGNIZED!                                            ┃
+┃                                                                            ┃
+┃ Expected Output (if you're NOT Sam):                                     ┃
+┃   Time: 5.2s / 15s | Frames: 156 | Status: Searching...                 ┃
+┃   Time: 7.8s / 15s | Frames: 234 | Status: Searching...                 ┃
+┃   [...]                                                                   ┃
+┃   Recognition Complete!                                                  ┃
+┃   Total Frames: 300                                                      ┃
+┃   Matches Found: 0                                                       ┃
+┃   ❌ NO MATCH FOUND                                                      ┃
+┃                                                                            ┃
+┃ TIME EXPECTED: ~15 seconds                                               ┃
+┃                                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 👩 PROMPT 7: ADD NEW USER (Maria) - Complete Flow                        ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃                                                                            ┃
+┃ COPY-PASTE THIS:                                                         ┃
+┃ ═══════════════                                                          ┃
+┃                                                                            ┃
+┃ cd D:\FACEreconation\FaceRecognition-GUI-APP-master\FaceRecognition-GUI-APP-master
+┃ python run_with_camera_display.py                                        ┃
+┃                                                                            ┃
+┃ THEN DO THIS:                                                            ┃
+┃ ══════════════                                                           ┃
+┃                                                                            ┃
+┃ When menu appears, press: 4                                              ┃
+┃ When asked "Enter your name:", type: maria                               ┃
+┃                                                                            ┃
+┃ PHASE 1 - CAPTURE (45 seconds):                                          ┃
+┃   Camera opens: "Capturing - maria"                                      ┃
+┃   You see: Live video of yourself                                        ┃
+┃   You see: Yellow boxes around your face                                 ┃
+┃   You see: "Progress: 15/50" updating on video                           ┃
+┃   You see: "Time: 7.3s" elapsed time on video                            ┃
+┃   Terminal: "✓ Captured: 15/50 | Time: 7.3s"                             ┃
+┃   Terminal: "✓ Captured: 30/50 | Time: 15.2s"                            ┃
+┃   Terminal: "✓ Captured 50 images for maria"                             ┃
+┃                                                                            ┃
+┃ PHASE 2 - TRAIN (5-10 seconds):                                          ┃
+┃   No camera (terminal output)                                            ┃
+┃   Shows: "Training with 50 images..."                                    ┃
+┃   Shows: "✓ Training complete!"                                          ┃
+┃   Shows: "✓ Classifier saved: ./data/classifiers/maria_classifier.xml"   ┃
+┃                                                                            ┃
+┃ PHASE 3 - RECOGNIZE (15 seconds):                                        ┃
+┃   Terminal: "Press Enter to start recognition..."                        ┃
+┃   You press: Enter                                                       ┃
+┃   Camera opens: "Recognition - maria"                                    ┃
+┃   You see: "Recognizing: maria" at top                                   ┃
+┃   You see: GREEN boxes if recognized                                     ┃
+┃   You see: "MATCH! (92%)" label on boxes                                 ┃
+┃   You see: "Time: 8.5s / 15s" progress                                   ┃
+┃   You see: "Matches: 12" counter                                         ┃
+┃   Terminal: "✓ SUCCESS - MARIA RECOGNIZED!"                              ┃
+┃                                                                            ┃
+┃ TIME EXPECTED: ~1 minute                                                 ┃
+┃                                                                            ┃
+┃ NOW MARIA IS TRAINED!                                                    ┃
+┃ Next time use Prompt 3 to recognize her                                  ┃
+┃                                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+═════════════════════════════════════════════════════════════════════════════
+
+🎯 QUICK REFERENCE - WHICH PROMPT TO USE
+
+Use Prompt 1:  Complete process (capture + train + recognize)
+Use Prompt 2:  Just capture face images
+Use Prompt 3:  Just recognize a face
+Use Prompt 4:  Just train after capturing
+Use Prompt 5:  See all trained users
+Use Prompt 6:  Recognize existing user (Sam example)
+Use Prompt 7:  Add new user (Maria example)
+
+═════════════════════════════════════════════════════════════════════════════
+
+📺 WHAT YOU'LL SEE ON CAMERA
+
+CAPTURE (Yellow Boxes):
+    ┌─────────────────────────────┐
+    │ Capturing - john            │
+    │                             │
+    │   Your face (live video)    │
+    │   Yellow rectangle shows    │ ← Face detected
+    │   face detection area       │
+    │                             │
+    │ Progress: 25/50 (GREEN)     │
+    │ Time: 12.3s (GREEN)         │
+    │ Press ESC to stop           │
+    │                             │
+    └─────────────────────────────┘
+
+RECOGNITION (Green/Red Boxes):
+    ┌─────────────────────────────┐
+    │ Recognition - john          │
+    │                             │
+    │   Your face (live video)    │
+    │   GREEN box = MATCH! (92%)  │
+    │   RED box = NO MATCH (45%)  │
+    │                             │
+    │ Time: 8.5s / 15s (GREEN)    │
+    │ Frames: 245 (GREEN)         │
+    │ Matches: 5 (GREEN)          │
+    │                             │
+    └─────────────────────────────┘
+
+═════════════════════════════════════════════════════════════════════════════
+
+✨ KEY POINTS
+
+✓ Always use: python run_with_camera_display.py (not run_now.py)
+✓ This version HAS live camera display (run_now.py doesn't show camera)
+✓ First run installs packages automatically (2-3 minutes)
+✓ Later runs are fast (~1 minute)
+✓ Camera windows appear automatically when needed
+✓ ESC key stops capture/recognition early
+✓ All progress shown on camera feed (not just terminal)
+
+═════════════════════════════════════════════════════════════════════════════
+
+🎉 START NOW - JUST RUN THIS ONE COMMAND:
+
+python run_with_camera_display.py
+
+Then press 4, enter your name, and watch the camera!
+
+═════════════════════════════════════════════════════════════════════════════
